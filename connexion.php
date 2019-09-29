@@ -75,5 +75,4 @@ class='tabNonQuadrille'>
       Création d'un établissement</a ></td>
   </tr>
 </table>";
-
 ?>

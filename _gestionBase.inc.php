@@ -270,4 +270,3 @@ function obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe)
 
 //balise n'etait pas fermé
 ?>
-
