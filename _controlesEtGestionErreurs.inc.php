@@ -100,6 +100,7 @@ function ajouterErreur($msg)
    $_REQUEST['erreurs'][]=$msg;
 }
 
+
 function nbErreurs()
 {
    if (!isset($_REQUEST['erreurs']))
