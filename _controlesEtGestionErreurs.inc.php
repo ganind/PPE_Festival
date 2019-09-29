@@ -23,7 +23,7 @@ function estEntier($valeur)
 function estChiffresOuEtLettres($valeur)
 {
    //return !ereg("[^a-zA-Z0-9]", $valeur);
-   return !preg_match("[^a-zA-Z0-9]", $valeur);
+   return !preg_match("[^a-zA-Z0-9]", $valeur); //nouvelle fonction 
 }
 
 // Fonction qui vérifie la saisie lors de la modification d'un établissement. 
