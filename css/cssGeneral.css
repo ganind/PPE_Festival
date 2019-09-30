@@ -3,71 +3,134 @@
 ne soit pas utile ; ceci permet une validation du W3C sans avertissement. 
 Idem pour background-color) */
 
-/* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap')
+
+/* Style de base pour la page (couleur fond : gris, couleur texte : bleu foncé) */
+
+body 
+{
+   background-color: #ebe8e8;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 600;
+   color: #0a0869 ;
+}
+
+a /*agi sur tout les a href*/
+{
+  text-decoration: none;  
+}
+a:hover
+{
+   color: #a3414c;
+}
+a:hover::after
+{
+   opacity: 0.2;
+}
+.user_box 
+{
+   background-color: #e2ddff;
+   display: inline-flex;
+   color:#0a0869;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 15px;
+   font-weight: 600;
+   margin-left: 80%;
+}
+.user_box::after
+{
+   display: block;
+   position: absolute;
+   top: 15px;
+   right: -9px;
+   background: #FFFFFF;
+   width: 1px;
+   height: 9px;
+   content: ''; 
+}
+
 .basePage 
 {
-   background-color:#FFDD88;
-   color:black;
-   font:11px Arial, Helvetica, sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 15px;
+   font-weight: 600;
 }
+#table_basePage 
+{
+  width:100%;
+  padding:0;
+  border-spacing:0;
+}
+
 
 /* Style pour le titre (couleur du texte : rouge) */
 .titre 
 {
-   background-color:#FFDD88;
-   color:#F50033;
-   font:30px Arial, Helvetica, sans-serif;
+   color:#0a0869;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 40px;
+   font-weight: 600;
    text-align:center;
 }
 
 /* Style pour le texte de 2ème niveau du titre */
 .texteNiveau2
 {
-   font:20px Arial, Helvetica, sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 20px;
+   font-weight: 600;
+   color: #0a0869 ;
 }
 
 /* Style pour le texte de la page d'accueil (couleur : bleu foncé avec mise en
 gras et en italique) */
-.texteAccueil
+.texte_accueil
 {
-   background-color:#FFDD88;
-   color:#000099;       
-   font:14px Georgia, "Times New Roman", Times, serif;
-   font-weight:bold;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 600;
+   color: #0a0869 ;
+   text-align: center;
+   margin-left: 30%;
 }
 
+
 /* Style pour le texte dans les différentes balises citées */
-td,tr 
-{
-   font:11px Arial, Helvetica, sans-serif;
-}
+
 
 /* STYLES POUR LES MENUS */
 
 /* Style du tableau contenant les éléments de menu : fond bleu ciel, épaisseur 
 1px, espacement de 3x entre la bordure gauche de chaque cellule et le texte et
 texte centré */
-table.tabMenu td
+table.tabMenu td 
 {
-   background-color:#DDFDFF;
+   background-color:#e2ddff;
    color:black;
    border-bottom:1px solid #777777;
    border-right:1px solid #777777;
    border-left:1px solid #777777;
    border-top:1px solid #777777;
-   padding-left:3px;
-   width:33%;
-   height:18px;
+   padding-left:10px;
+   width:30%;
+   height:20px;
    text-align:center;
+   border:1px #DDFDFF;
+   margin-left: 400px;
+   margin-top: 13%;
+
+
 } 
 
 /* Style pour les éléments du menu (mise en gras et italique) */ 
 .menu
 {
-   font:11px Georgia, "Times New Roman", Times, serif;
-   font-weight:bold;
-   font-style:italic;
-   text-align:left;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 600;
+   color: #0a0869 ;
+   text-decoration-line: none;
 }
 
 /* STYLES POUR LES TABLEAUX QUADRILLÉS */

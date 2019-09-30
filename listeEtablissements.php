@@ -1,3 +1,6 @@
+<!DOCTYPE html> 
+<html lang="fr">
+
 <?php //manque du nom php
 
 include("_debut.inc.php");
