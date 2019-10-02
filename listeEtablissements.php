@@ -2,10 +2,8 @@
 <html lang="fr">
 <title>Festival | Établissements</title> 
 
-
 <?php //manque du nom php
 
-include("index.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
@@ -30,10 +28,10 @@ if (!selectBase($connexion))
 // ÉTABLISSEMENT
 
 echo "
-<table width='75%' cellspacing='0' cellpadding='0' align='center' 
-class='tabQuadrille'>
-   <tr class='enTeteTabQuad'>
-      <td colspan='4'>Établissements</td>
+<table width='70%' cellspacing='0' cellpadding='0' align='center' 
+class='tabNonQuadrille'>
+   <tr class='enTeteTabNonQuad'>
+      <td colspan='4'>Etablissements</td>
    </tr>";
      
    $req=obtenirReqEtablissements();
@@ -47,7 +45,7 @@ class='tabQuadrille'>
       $id=$lgEtab['id'];
       $nom=$lgEtab['nom'];
       echo "
-		<tr class='ligneTabQuad'>
+		<tr class='ligneTabNonQuad'>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
@@ -77,6 +75,19 @@ class='tabQuadrille'>
       //$lgEtab=mysql_fetch_array($rsEtab);
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }   
-   echo "</table>";
+   echo "
+   <tr class='ligneTabNonQuad'>
+      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
+      Création d'un établissement</a ></td>
+  </tr>
+</table>";
 
 ?>
+
+<!--
+<div class='titre'>
+   <table class='texteNiveau2' align="center">
+      <td> Établissements </td>
+   </table>
+</div>
+-->
