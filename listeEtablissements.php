@@ -1,9 +1,11 @@
 <!DOCTYPE html> 
 <html lang="fr">
+<title>Festival | Établissements</title> 
+
 
 <?php //manque du nom php
 
-include("_debut.inc.php");
+include("index.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
@@ -12,7 +14,7 @@ include("_controlesEtGestionErreurs.inc.php");
 $connexion=connect();
 if (!$connexion)
 {
-   ajouterErreur("Echec de la connexion au serveur MySql");
+   ajouterErreur("Échec de la connexion au serveur MySql");
    afficherErreurs();
    exit();
 }
@@ -28,10 +30,10 @@ if (!selectBase($connexion))
 // ÉTABLISSEMENT
 
 echo "
-<table width='70%' cellspacing='0' cellpadding='0' align='center' 
-class='tabNonQuadrille'>
-   <tr class='enTeteTabNonQuad'>
-      <td colspan='4'>Etablissements</td>
+<table width='75%' cellspacing='0' cellpadding='0' align='center' 
+class='tabQuadrille'>
+   <tr class='enTeteTabQuad'>
+      <td colspan='4'>Établissements</td>
    </tr>";
      
    $req=obtenirReqEtablissements();
@@ -45,7 +47,7 @@ class='tabNonQuadrille'>
       $id=$lgEtab['id'];
       $nom=$lgEtab['nom'];
       echo "
-		<tr class='ligneTabNonQuad'>
+		<tr class='ligneTabQuad'>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
@@ -75,11 +77,6 @@ class='tabNonQuadrille'>
       //$lgEtab=mysql_fetch_array($rsEtab);
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }   
-   echo "
-   <tr class='ligneTabNonQuad'>
-      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
-      Création d'un établissement</a ></td>
-  </tr>
-</table>";
+   echo "</table>";
 
 ?>

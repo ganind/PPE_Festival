@@ -13,7 +13,7 @@ body
    font-family: 'Montserrat', sans-serif;
    font-size: 14px;
    font-weight: 600;
-   color: #0a0869 ;
+   color: #0a0869;
 }
 
 a /*agi sur tout les a href*/
@@ -94,6 +94,11 @@ gras et en italique) */
    text-align: center;
    margin-left: 30%;
 }
+.logo
+{
+  display: block;
+  margin-left: 15%;
+}
 
 
 /* Style pour le texte dans les différentes balises citées */
@@ -129,7 +134,7 @@ table.tabMenu td
    font-family: 'Montserrat', sans-serif;
    font-size: 14px;
    font-weight: 600;
-   color: #0a0869 ;
+   color: #0a0869;
    text-decoration-line: none;
 }
 
@@ -139,10 +144,10 @@ table.tabMenu td
 espacement de 3x entre la bordure gauche de chaque cellule et le texte */
 table.tabQuadrille td
 {
-   border-bottom:1px solid #777777;
-   border-right:1px solid #777777;
-   border-left:1px solid #777777;
-   border-top:1px #777777;
+   border-bottom:2px solid #777777;
+   border-right:2px solid #777777;
+   border-left:2px solid #777777;
+   border-top:2px #777777;
    padding-left:3px;
 } 
 
@@ -150,18 +155,25 @@ table.tabQuadrille td
 nuances de jaune et texte centré */
 tr.enTeteTabQuad
 {
-   background-image:url('../images/xpBarre.jpg');
+   background-color: #8c7ca3;
    height:21px;
    text-align:center;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 600;
+   color: #0a0869;
 } 
 
 /* Style pour les lignes (autres que la 1ère ligne d'en-tête) des tableaux 
 quadrillés : fond écru et texte centré */
 tr.ligneTabQuad 
 {
-   background-color:#FFFFE0;
+   background-color:#FFFFFF;
    text-align:center;
-   color:black;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 400;
+   color: #0a0869;
 }
 
 /* STYLES POUR LES TABLEAUX NON QUADRILLÉS */
@@ -170,7 +182,7 @@ tr.ligneTabQuad
 1px */
 table.tabNonQuadrille 
 {
-   background-color:#FFFFE0;
+   background-color:#e2ddff;
    border-bottom:1px solid #777777;
    border-right:1px solid #777777;
    border-left:1px solid #777777;
@@ -183,11 +195,14 @@ nuances de jaune, texte centré et en gras et trait bas pour séparer l'en-tête
 corps du tableau */
 tr.enTeteTabNonQuad td
 {
-   background-image:url('../images/xpBarre.jpg');
+   background-color: #8c7ca3;
    height:21px;
    text-align:center;
-   font-weight:bold;
    border-bottom:1px solid #777777;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 400;
+   color: #0a0869;
 } 
 
 /* Style pour les lignes (autres que la 1ère ligne d'en-tête) des tableaux non 
@@ -195,11 +210,14 @@ quadrillés : fond écru, hauteur plus importante, texte aligné à gauche et
 espacement de 3px entre la bordure gauche de chaque cellule et le texte */
 tr.ligneTabNonQuad td
 {
-   background-color:#FFFFE0;
+   background-color:#e2ddff;
    height:28px;
    text-align:left;
    padding-left:3px;
-   color:black;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 14px;
+   font-weight: 400;
+   color: #0a0869;
 } 
 
 /* STYLE POUR LES MESSAGES D'ERREUR AFFICHÉS EN BAS DE PAGE (FOND : OCRE, 

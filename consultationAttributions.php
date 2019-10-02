@@ -1,6 +1,10 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<title>Festival | Attributions</title> 
+
 <?php //manque du nom php
 
-include("_debut.inc.php");
+include("index.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
@@ -27,11 +31,6 @@ if (!selectBase($connexion))
 $nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)
 {
-   echo "
-   <table width='75%' cellspacing='0' cellpadding='0' align='center'
-   <tr><td>
-   <a href='modificationAttributions.php?action=demanderModifAttrib'>
-   Effectuer ou modifier les attributions</a></td></tr></table><br><br>";
    
    // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
    // D'EN-TÊTE ET LE DÉTAIL DES ATTRIBUTIONS
@@ -102,6 +101,12 @@ if ($nbEtab!=0)
       //$lgEtab=mysql_fetch_array($rsEtab);
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    } // Fin de la boucle sur les établissements
+
+   echo "
+   <table width='30%' cellspacing='0' cellpadding='0' align='right'
+   <tr><td>
+   <a href='modificationAttributions.php?action=demanderModifAttrib'>
+   <br>Effectuer ou modifier les attributions</a></td></tr></table><br><br>";
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php //manque du nom php
 
-include("_debut.inc.php");
+include("index.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
