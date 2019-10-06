@@ -32,7 +32,7 @@ function verifierDonneesEtabM($connexion, $id, $nom, $adresseRue, $codePostal,
                               $ville, $tel, $nomResponsable, $nombreChambresOffertes)
 {
    if ($nom=="" || $adresseRue=="" || $codePostal=="" || $ville=="" || 
-       $tel=="" || $nomResponsable=="" || $nombreChambresOffertes=="")
+      $tel=="" || $nomResponsable=="" || $nombreChambresOffertes=="")
    {
       ajouterErreur("Chaque champ suivi du caractère * est obligatoire");
    }
@@ -42,7 +42,7 @@ function verifierDonneesEtabM($connexion, $id, $nom, $adresseRue, $codePostal,
    }
    if ($codePostal!="" && !estUnCp($codePostal))
    {
-      ajouterErreur("Le code postal doit comporter 5 chiffres");   
+     ajouterErreur("Le code postal doit comporter 5 chiffres");   
    }
    if ($nombreChambresOffertes!="" && (!estEntier($nombreChambresOffertes) ||
        !estModifOffreCorrecte($connexion, $id, $nombreChambresOffertes)))
@@ -60,15 +60,15 @@ function verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal,
    if ($id=="" || $nom=="" || $adresseRue=="" || $codePostal=="" || $ville==""
        || $tel=="" || $nomResponsable=="" || $nombreChambresOffertes=="")
    {
-      ajouterErreur("Chaque champ suivi du caractère * est obligatoire");
+     ajouterErreur("Chaque champ suivi du caractère * est obligatoire");
    }
    if($id!="")
    {
       // Si l'id est constitué d'autres caractères que de lettres non accentuées 
       // et de chiffres, une erreur est générée
-      if (!estChiffresOuEtLettres($id))
+     if(!estChiffresOuEtLettres($id))
       {
-         ajouterErreur
+        ajouterErreur
          ("L'identifiant doit comporter uniquement des lettres non accentuées et des chiffres");
       }
       else
@@ -85,7 +85,7 @@ function verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal,
    }
    if ($codePostal!="" && !estUnCp($codePostal))
    {
-      ajouterErreur("Le code postal doit comporter 5 chiffres");   
+     ajouterErreur("Le code postal doit comporter 5 chiffres");   
    }
    if ($nombreChambresOffertes!="" && !estEntier($nombreChambresOffertes)) 
    {

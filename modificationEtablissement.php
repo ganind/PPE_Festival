@@ -46,6 +46,7 @@ if ($action=='demanderModifEtab')
    $nomResponsable=$lgEtab['nomResponsable'];
    $prenomResponsable=$lgEtab['prenomResponsable'];
    $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
+   $infoP=$lgEtab['infoP'];
 }
 else
 {
@@ -60,6 +61,7 @@ else
    $nomResponsable=$_REQUEST['nomResponsable'];
    $prenomResponsable=$_REQUEST['prenomResponsable'];
    $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
+   $infoP=$_REQUEST['infoP'];
 
    verifierDonneesEtabM($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
                         $tel, $nomResponsable, $nombreChambresOffertes);      
@@ -67,7 +69,7 @@ else
    {        
       modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
                             $tel, $adresseElectronique, $type, $civiliteResponsable, 
-                            $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
+                            $nomResponsable, $prenomResponsable, $nombreChambresOffertes, $infoP);
    }
 }
 
@@ -164,6 +166,10 @@ echo "
             <td><input type="text" value="'.$nombreChambresOffertes.'" name=
             "nombreChambresOffertes" size ="2" maxlength="3"></td>
          </tr>
+         <tr class="ligneTabNonQuad">
+            <td> Informations pratiques: </td>
+            <td><input type="text" value="'.$infoP.'" name="infoP" maxlength="200"></td>
+         </tr>
    </table>';
    
    echo "
@@ -179,7 +185,6 @@ echo "
          </td>
       </tr>
    </table>
-  
 </form>";
 
 // En cas de validation du formulaire : affichage des erreurs ou du message de 

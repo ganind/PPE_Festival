@@ -20,6 +20,7 @@ function connect()
 
    try {
       $dbh = new PDO($dsn, $user, $password);
+      $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    } catch (PDOException $e) {
       echo 'Connexion échouée : ' . $e->getMessage();
    }
@@ -77,7 +78,7 @@ function supprimerEtablissement($connexion, $id)
 function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 
                                $ville, $tel, $adresseElectronique, $type, 
                                $civiliteResponsable, $nomResponsable, 
-                               $prenomResponsable, $nombreChambresOffertes)
+                               $prenomResponsable, $nombreChambresOffertes, $infoP)
 {  
    $nom=str_replace("'", "''", $nom);
    $adresseRue=str_replace("'","''", $adresseRue);
@@ -85,13 +86,14 @@ function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
    $adresseElectronique=str_replace("'","''", $adresseElectronique);
    $nomResponsable=str_replace("'","''", $nomResponsable);
    $prenomResponsable=str_replace("'","''", $prenomResponsable);
+   $infoP=str_replace("'", "'", $infoP);
   
    $req="update Etablissement set nom='$nom',adresseRue='$adresseRue',
          codePostal='$codePostal',ville='$ville',tel='$tel',
          adresseElectronique='$adresseElectronique',type='$type',
          civiliteResponsable='$civiliteResponsable',nomResponsable=
          '$nomResponsable',prenomResponsable='$prenomResponsable',
-         nombreChambresOffertes='$nombreChambresOffertes' where id='$id'";
+         nombreChambresOffertes='$nombreChambresOffertes',infoP='$infoP' where id='$id'";
    
    //mysql_query($req, $connexion);
    $connexion->query($req);
@@ -100,7 +102,7 @@ function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
 function creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 
                             $ville, $tel, $adresseElectronique, $type, 
                             $civiliteResponsable, $nomResponsable, 
-                            $prenomResponsable, $nombreChambresOffertes)
+                            $prenomResponsable, $nombreChambresOffertes, $infoP)
 { 
    $nom=str_replace("'", "''", $nom);
    $adresseRue=str_replace("'","''", $adresseRue);
@@ -108,14 +110,22 @@ function creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
    $adresseElectronique=str_replace("'","''", $adresseElectronique);
    $nomResponsable=str_replace("'","''", $nomResponsable);
    $prenomResponsable=str_replace("'","''", $prenomResponsable);
+   $infoP=str_replace("'","''", $infoP);
    
    $req="insert into Etablissement values ('$id', '$nom', '$adresseRue', 
          '$codePostal', '$ville', '$tel', '$adresseElectronique', '$type', 
          '$civiliteResponsable', '$nomResponsable', '$prenomResponsable',
-         '$nombreChambresOffertes')";
-   
-   //mysql_query($req, $connexion);
+         '$nombreChambresOffertes', '$infoP')";
+
    $connexion->query($req);
+   /*echo $req; --> verification des erreurs sur la requete vers la BDD
+   //mysql_query($req, $connexion);
+   $ret=$connexion->query($req);
+   if( $ret == FALSE){
+      echo "false";
+   }else {
+      echo "true";
+   }*/
 }
 
 

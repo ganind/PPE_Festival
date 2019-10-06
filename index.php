@@ -18,15 +18,10 @@
 
 
 <body>
-
-      <div class="user_box"> 
-         <table>
-            <tr>
-               <td class="user_box_login"><a href="login.php">S'Identifier |</a></td>
-               <td class="user_box_register"><a href="creationEtablissement.php">Ajouter un Établissement</a></td>
-            </tr>
-         </table>
-      </div>
+   <div class="user_box ml-auto"> 
+      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
+   </div>
       <br><br><br>
 
 <?php

@@ -26,7 +26,6 @@ if (!selectBase($connexion))
 $tabCivilite=array("M.","Mme","Melle");  
 
 $action=$_REQUEST['action'];
-
 // S'il s'agit d'une création et qu'on ne "vient" pas de ce formulaire (on 
 // "vient" de ce formulaire uniquement s'il y avait une erreur), il faut définir 
 // les champs à vide sinon on affichera les valeurs précédemment saisies
@@ -44,6 +43,7 @@ if ($action=='demanderCreEtab')
    $nomResponsable='';
    $prenomResponsable='';
    $nombreChambresOffertes='';
+   $infoP='';
 }
 else
 {
@@ -59,66 +59,71 @@ else
    $nomResponsable=$_REQUEST['nomResponsable'];
    $prenomResponsable=$_REQUEST['prenomResponsable'];
    $nombreChambresOffertes=$_REQUEST['nombreChambresOffertes'];
+   $infoP=$_REQUEST['infoP'];
 
    verifierDonneesEtabC($connexion, $id, $nom, $adresseRue, $codePostal, $ville, 
                         $tel, $nomResponsable, $nombreChambresOffertes);      
    if (nbErreurs()==0)
    {        
-      creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
+    creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, $ville,  
                          $tel, $adresseElectronique, $type, $civiliteResponsable, 
-                         $nomResponsable, $prenomResponsable, $nombreChambresOffertes);
+                         $nomResponsable, $prenomResponsable, $nombreChambresOffertes, $infoP);
    }
 }
 
-echo "
-<form method='POST' action='creationEtablissement.php?'>
-   <input type='hidden' value='validerCreEtab' name='action'>
-   <table width='85%' align='center' cellspacing='0' cellpadding='0' 
-   class='tabNonQuadrille'>
+echo '
+<form method="POST" action="creationEtablissement.php?">
+   <input type="hidden" value="validerCreEtab" name="action">
+   <table width="85%"" align="center" cellspacing="0" cellpadding="0" 
+   class="tabNonQuadrille">
    
-      <tr class='enTeteTabNonQuad'>
-         <td colspan='3'>Nouvel établissement</td>
+      <tr class="enTeteTabNonQuad">
+         <td colspan="3">Nouvel établissement</td>
       </tr>
-      <tr class='ligneTabNonQuad'>
-         <td> Id*: </td>
-         <td><input type='text' value='$id' name='id' size ='10' 
-         maxlength='8'></td>
-      </tr>";
-     
-      echo '
+
       <tr class="ligneTabNonQuad">
-         <td> Nom*: </td>
-         <td><input type="text" value="'.$nom.'" name="nom" size="50" 
-         maxlength="45"></td>
+         <td> Les champs indiqués par (*) sont obligatoires. </td>
       </tr>
+
       <tr class="ligneTabNonQuad">
-         <td> Adresse*: </td>
-         <td><input type="text" value="'.$adresseRue.'" name="adresseRue" 
-         size="50" maxlength="45"></td>
+         <td> Id (*): </td>
+         <td><input type="number" required value="$id" name="id" maxlength="8"</td> 
       </tr>
+
       <tr class="ligneTabNonQuad">
-         <td> Code postal*: </td>
-         <td><input type="text" value="'.$codePostal.'" name="codePostal" 
-         size="4" maxlength="5"></td>
+         <td> Nom (*): </td>
+         <td><input type="text" required value="'.$nom.'" name="nom" maxlength="45"></td>
       </tr>
+
       <tr class="ligneTabNonQuad">
-         <td> Ville*: </td>
-         <td><input type="text" value="'.$ville.'" name="ville" size="40" 
-         maxlength="35"></td>
+         <td> Adresse (*): </td>
+         <td><input type="text" required value="'.$adresseRue.'" name="adresseRue" maxlength="45"></td>
       </tr>
+
       <tr class="ligneTabNonQuad">
-         <td> Téléphone*: </td>
-         <td><input type="text" value="'.$tel.'" name="tel" size ="20" 
-         maxlength="10"></td>
+         <td> Code postal (*): </td>
+         <td><input type="number" required value="'.$codePostal.'" name="codePostal" maxlength="5"></td>
       </tr>
+
+      <tr class="ligneTabNonQuad">
+         <td> Ville (*): </td>
+         <td><input type="text" required value="'.$ville.'" name="ville" maxlength="35"></td>
+      </tr>
+
+      <tr class="ligneTabNonQuad">
+         <td> Téléphone (*): </td>
+         <td><input type="number" required value="'.$tel.'" name="tel" maxlength="10"></td>
+      </tr>
+
       <tr class="ligneTabNonQuad">
          <td> E-mail: </td>
-         <td><input type="text" value="'.$adresseElectronique.'" name=
-         "adresseElectronique" size ="75" maxlength="70"></td>
+         <td><input type="email" value="'.$adresseElectronique.'" name="adresseElectronique" maxlength="70"></td>
       </tr>
+
       <tr class="ligneTabNonQuad">
-         <td> Type*: </td>
+         <td> Type (*): </td>
          <td>';
+
             if ($type==1)
             {
                echo " 
@@ -129,18 +134,21 @@ echo "
              else
              {
                 echo " 
-                <input type='radio' name='type' value='1'> 
+                <input type='radio'  name='type' value='1'> 
                 Etablissement Scolaire
                 <input type='radio' name='type' value='0' checked> Autre";
               }
+
            echo "
            </td>
          </tr>
+
          <tr class='ligneTabNonQuad'>
             <td colspan='2' ><strong>Responsable:</strong></td>
          </tr>
+
          <tr class='ligneTabNonQuad'>
-            <td> Civilité*: </td>
+            <td> Civilité (*): </td>
             <td> <select name='civiliteResponsable'>";
                for ($i=0; $i<3; $i=$i+1)
                   if ($tabCivilite[$i]==$civiliteResponsable) 
@@ -152,19 +160,23 @@ echo "
                      echo "<option>$tabCivilite[$i]</option>";
                   }
                echo '
-               </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*: 
-               <input type="text" value="'.$nomResponsable.'" name=
-               "nomResponsable" size="26" maxlength="25">
+               </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom (*): 
+               <input type="text" required value="'.$nomResponsable.'" name="nomResponsable">
                &nbsp; &nbsp; &nbsp; &nbsp; Prénom: 
-               <input type="text"  value="'.$prenomResponsable.'" name=
-               "prenomResponsable" size="26" maxlength="25">
+               <input type="text" value="'.$prenomResponsable.'" name="prenomResponsable">
             </td>
          </tr>
+
           <tr class="ligneTabNonQuad">
-            <td> Nombre chambres offertes*: </td>
-            <td><input type="text" value="'.$nombreChambresOffertes.'" name=
-            "nombreChambresOffertes" size ="2" maxlength="3"></td>
+            <td> Nombre chambres offertes (*): </td>
+            <td><input type="number" required value="'.$nombreChambresOffertes.'" name="nombreChambresOffertes"></td>
          </tr>
+         
+          <tr class="ligneTabNonQuad">
+         <td> Informations pratiques: </td>
+         <td><input type="text" value="'.$infoP.'" name="infoP" maxlength="200"></td>
+      </tr>
+
    </table>';
    
    echo "
