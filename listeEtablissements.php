@@ -1,6 +1,58 @@
 <!DOCTYPE html> 
 <html lang="fr">
+
+<head>
+
 <title>Festival | Établissements</title> 
+<meta charset="utf-8"> <!-- reconnaissance des accents -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="M2L Festival">
+<link href=css/cssGeneral.css rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="bootstrap4/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<!-- Accès espace client -->
+   <div class="user_box ml-auto"> 
+      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
+   </div>
+      <br><br><br>
+
+<!-- Tableau contenant le titre -->
+   <div class="basePage">
+      <table id="table_basePage">
+         <tr> 
+            <td class="titre">Festival Folklores du Monde<br><br>
+            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            </td>
+         </tr>
+      </table>
+   </div>
+   <br><br>
+
+<!-- Tableau contenant les menus -->
+   <div class="menu">
+      <table class="tabMenu" align="center">
+         <tr>
+            <td class="menu"><a href="index.php">Accueil</a></td>
+            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
+            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
+         </tr>
+      </table>
+   </div>
+<br><br>
+
+ <!--  <br>
+   <div class="user_box ml-auto"> 
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Création d'un établisement</a></div>
+   </div>
+      <br><br> -->
+
+</body>
+</html>
 
 <?php //manque du nom php
 
@@ -29,8 +81,8 @@ if (!selectBase($connexion))
 
 echo "
 <table width='70%' cellspacing='0' cellpadding='0' align='center' 
-class='tabNonQuadrille'>
-   <tr class='enTeteTabNonQuad'>
+class='tabQuadrille'>
+   <tr class='enTeteTabQuad'>
       <td colspan='4'>Etablissements</td>
    </tr>";
      
@@ -45,7 +97,7 @@ class='tabNonQuadrille'>
       $id=$lgEtab['id'];
       $nom=$lgEtab['nom'];
       echo "
-		<tr class='ligneTabNonQuad'>
+		<tr class='ligneTabQuad'>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
@@ -74,20 +126,14 @@ class='tabNonQuadrille'>
       </tr>";
       //$lgEtab=mysql_fetch_array($rsEtab);
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
-   }   
-   echo "
-   <tr class='ligneTabNonQuad'>
-      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
-      Création d'un établissement</a ></td>
-  </tr>
-</table>";
+   }
+
+      echo "
+   <table class='user_box ml-auto' align='center' cellspacing='0' cellpadding='0'>
+      <tr>
+        <br> <td><a href='listeEtablissements.php'>Création d'un établisement</a>
+         </td>
+      </tr>
+   </table>";
 
 ?>
-
-<!--
-<div class='titre'>
-   <table class='texteNiveau2' align="center">
-      <td> Établissements </td>
-   </table>
-</div>
--->

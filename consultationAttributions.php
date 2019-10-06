@@ -1,10 +1,61 @@
 <!DOCTYPE html> 
 <html lang="fr">
+
+<head>
+
 <title>Festival | Attributions</title> 
+<meta charset="utf-8"> <!-- reconnaissance des accents -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="M2L Festival">
+<link href=css/cssGeneral.css rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="bootstrap4/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<!-- Accès espace client -->
+   <div class="user_box ml-auto"> 
+      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
+   </div>
+      <br><br><br>
+
+<!-- Tableau contenant le titre -->
+   <div class="basePage">
+      <table id="table_basePage">
+         <tr> 
+            <td class="titre">Festival Folklores du Monde<br><br>
+            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            </td>
+         </tr>
+      </table>
+   </div>
+   <br><br>
+
+<!-- Tableau contenant les menus -->
+   <div class="menu">
+      <table class="tabMenu" align="center">
+         <tr>
+            <td class="menu"><a href="index.php">Accueil</a></td>
+            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
+            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
+         </tr>
+      </table>
+   </div>
+<br><br>
+
+ <!--  <br>
+   <div class="user_box ml-auto"> 
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Création d'un établisement</a></div>
+   </div>
+      <br><br> -->
+
+</body>
+</html>
 
 <?php //manque du nom php
 
-include("index.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
 
@@ -102,11 +153,12 @@ if ($nbEtab!=0)
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    } // Fin de la boucle sur les établissements
 
-   echo "
-   <table width='30%' cellspacing='0' cellpadding='0' align='right'
-   <tr><td>
-   <a href='modificationAttributions.php?action=demanderModifAttrib'>
-   <br>Effectuer ou modifier les attributions</a></td></tr></table><br><br>";
+      echo "
+   <table class='user_box ml-auto' cellspacing='0' cellpadding='0' align='center'>
+   <tr>
+   <td><a href='modificationAttributions.php?action=demanderModifAttrib'> Effectuer ou modifier les attributions</a></td>
+   </tr>
+   </table>";
 }
 
 ?>
