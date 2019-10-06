@@ -1,103 +1,120 @@
 <?php
-/* Set server path */
-$PARAM_hote='localhost';
-/* Set server port */
-$PARAM_port='3306';
-/* Set database name */
-$PARAM_nom_bd='festival';
-/* Connect as root */
-$PARAM_utilisateur='festival';
-/* No password */
-$PARAM_mot_passe='secret';
 
 session_start();
-/* Initialize connexion to database */
-$connexion = new PDO('mysql:host='.$PARAM_hote.';port='.$PARAM_port.';dbname='.$PARAM_nom_bd, $PARAM_utilisateur, $PARAM_mot_passe);
-/* Is it a return from login form? */
-if (isset($_POST["id"]) && isset($_POST["motDePasse"]))
+$host = "localhost";
+$username = "festival";
+$password = "secret";
+$database ="festival";
+$message = "";
+
+try
 {
-	/* Select all data from database where login info match */
-	$query = $connexion->query("SELECT * FROM Etablissement WHERE id='".$_POST["id"]."' AND motDePasse=PASSWORD('".$_POST["motDePasse"]."')");
-	/* Get number of result returned by this request */
-	/* Is at least one user found? */
-	if ($query->rowCount() >= 1)
+	$connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);
+	$connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	if(isset($_POST["login"]))
 	{
-		$firstRow = $query->fetch();
-		echo "Utilisateur trouvé avec le niveau d'accès :  ".$firstRow['access_level'];
-		$_SESSION["access_level"] = $firstRow['access_level'];
-		$_SESSION["total_product"] = 0;
-	}
-	else
-	{
-		echo "Utilisateur inconnu";
+		if(empty($_POST["username"]) || empty($_POST["password"]))
+		{
+			$message = '<label> Remplissez tous les champs</label>';
+		}
+		else
+		{
+			$query = "SELECT * FROM users WHERE username = :username AND password = :password";
+			$statement = $connect->prepare($query);
+			$statement->execute(
+				array(
+						'username' => $_POST["username"],
+						'password' => $_POST["password"]
+					)
+			);
+			$count = $statement->rowCount();
+			if($count > 0)
+			{
+				$_SESSION["username"] = $_POST["username"];
+				header("location:login_sucess.php");
+			}
+			else
+			{
+				$message = '<label> Saisie incorret. Veuillez ressayer.</label>';
+			}
+		}
 	}
 }
+catch(PDOException $error)
+{
+	$message = $error->getMessage();
+}
+
 ?>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html lang="fr">
+
 <head>
-	<title>Login</title>
+
+<title>Festival | Login</title> 
+<meta charset="utf-8"> <!-- reconnaissance des accents -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="M2L Festival">
+<link href=css/cssGeneral.css rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
+
 <body>
-	<div class="titre">
-	<h6>Se connecter</h6>
-	</div>
-    	<section>
-	<div class="login">
-<FORM action="" method="post">
-	<table>
-		<tr>
-			<td><label>Pseudo : </label></td>
-			<td><input type="text" name="pseudo"/></td>
-		</tr>
-		<tr>
-			<td><label>Mot de passe : </label></td>
-			<td><input type="password" name="passe"/></td>
-		</tr>
+
+	<?php
+	if (isset($message))
+	{
+		echo'<label class="text_danger">'.$message.'</label>';
+	}
+	?>
+
+<!-- Accès espace client 
+   <div class="user_box ml-auto"> 
+      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
+         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
+   </div>
+      <br><br><br> -->
+
+<!-- Tableau contenant le titre -->
+   <div class="basePage">
+      <table id="table_basePage">
+         <tr> 
+            <td class="titre">Festival Folklores du Monde<br><br>
+            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            </td>
+         </tr>
+      </table>
+   </div>
+   <br><br>
+
+<!-- Tableau contenant les menus 
+   <div class="menu">
+      <table class="tabMenu" align="center">
+         <tr>
+            <td class="menu"><a href="index.php">Accueil</a></td>
+            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
+            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
+         </tr>
+      </table>
+   </div>
+<br><br> -->
+
+	<div class="container" style="width:500px;">
+	<form method="post">
+		<label>Username : </label>
+		<input type="text" name="username" class="form-control"/>
+		<br />
 	
-		<tr>
-			<td></td>
-			<td><input type="submit" value="Connexion"/></td>
-		</tr>
-	</table>
-</FORM>
+		<label>Password : </label>
+		<input type="password" name="password" class="form-control"/>
+		<br />
+
+		<input type="submit" name="login" class="btn btn-info" value="Connexion"/>
+
+</form>
 </div>
-<!-- Accès espace client -->
-
-						<div class="user_box ml-auto">
-							<?php
-							/* on créé un session pour enregistrer les données de l'utilisateur*/
-							if (isset($_SESSION["access_level"]))
-							{
-								echo "<div class='user_box_login user_box_link'><a href='panier.php'>Mon panier</a></div>";
-								echo "<div class='user_box_login user_box_link'><a href='logout.php'>Déconnexion</a></li>";
-							}
-							else
-							{
-								echo "<div class='user_box_login user_box_link'><a href='login.php'>S'Identifier</a></div>";
-								echo "<div class='user_box_register user_box_link'><a href='Nouveau_Membre.php'>Créer un compte</a></div>";
-							}
-							?>
-						</div>
-
-						<?php
-								/* SESSION ADMINISTRATEUR : Visible uniquement pour les utilisateurs ayant le niveau d'accès 1 */
-									if (isset($_SESSION["access_level"]))
-										
-									{
-										if ($_SESSION["access_level"] == '1')
-										{
-											echo '<li class="main_nav_item"><a href="admin.php">Admin</a></li>';
-										}
-										else
-										{
-											/* N'affiche pas l'onglet ADMIN si l'utilisateur ne possède pas le niveau d'accès 1 */
-										} 
-									}
-								?>
-</section>
-
-
 </body>
 </html>
