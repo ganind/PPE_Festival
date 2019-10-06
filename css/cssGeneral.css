@@ -16,23 +16,23 @@ body
    color: #0a0869;
 }
 
-a /*agi sur tout les a href*/
+/*a /*agi sur tout les a href
 {
   text-decoration: none;  
 }
 a:hover
 {
-   color: #a3414c;
+   color: #ffffff;
 }
 a:hover::after
 {
    opacity: 0.2;
-}
+} */
 .user_box 
 {
    background-color: #e2ddff;
    display: inline-flex;
-   color:#0a0869;
+   color:#ffffff;
    font-family: 'Montserrat', sans-serif;
    font-size: 15px;
    font-weight: 600;

@@ -11,6 +11,7 @@
 <meta name="description" content="M2L Festival">
 <link href=css/cssGeneral.css rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="bootstrap4/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
@@ -18,10 +19,12 @@
 
 
 <body>
-   <div class="user_box ml-auto"> 
-      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
-         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
+
+<!--<div class="container" style="width: 700px"> -->
+      <div class="btn btn-success"><a href="login.php">S'Identifier</a></div>
+        <!-- <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div> -->
    </div>
+</div>
       <br><br><br>
 
 <?php
