@@ -131,7 +131,7 @@ class='tabQuadrille'>
       echo "
    <table class='user_box ml-auto' align='center' cellspacing='0' cellpadding='0'>
       <tr>
-        <br> <td><a href='listeEtablissements.php'>Création d'un établisement</a>
+        <br> <td><a href='creationEtablissement.php?action=demanderCreEtab'>Création d'un établisement</a>
          </td>
       </tr>
    </table>";
