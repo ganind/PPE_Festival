@@ -16,7 +16,7 @@ body
    color: #0a0869;
 }
 
-/*a /*agi sur tout les a href
+a /*agi sur tout les a href */
 {
   text-decoration: none;  
 }
@@ -27,7 +27,7 @@ a:hover
 a:hover::after
 {
    opacity: 0.2;
-} */
+}
 .user_box 
 {
    background-color: #e2ddff;
@@ -36,7 +36,7 @@ a:hover::after
    font-family: 'Montserrat', sans-serif;
    font-size: 15px;
    font-weight: 600;
-   margin-left: 80%;
+   margin-left: 100%;
 }
 .user_box::after
 {

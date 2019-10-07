@@ -20,7 +20,7 @@ try
 		}
 		else
 		{
-			$query = "SELECT * FROM users WHERE username = :username AND password = :password";
+			$query = "SELECT * FROM users WHERE username = :username AND password = PASSWORD(:password)";
 			$statement = $connect->prepare($query);
 			$statement->execute(
 				array(
@@ -103,11 +103,11 @@ catch(PDOException $error)
 
 	<div class="container" style="width:500px;">
 	<form method="post">
-		<label>Username : </label>
+		<label>Utilisateur : </label>
 		<input type="text" name="username" class="form-control"/>
 		<br />
 	
-		<label>Password : </label>
+		<label>Mot de passe : </label>
 		<input type="password" name="password" class="form-control"/>
 		<br />
 

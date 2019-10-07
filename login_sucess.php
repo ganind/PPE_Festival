@@ -43,8 +43,13 @@ session_start();
 
 if(isset($_SESSION["username"]))
 {
-	echo '<h3>Login avec Sucess. Bienvenue, '.$_SESSION["username"].'</h3>';
-	echo '<br /><br /><a href="logout.php">Logout</a>';
+	echo '<h4 class="container">Connexion avec success. Bienvenue, '.$_SESSION["username"].'.</h4>';
+	echo '<br /><br /> 
+   <div class="row">
+      <div class="container col-lg-2 col-md-2 col-sm-2">
+         <a href="logout.php" class="container btn btn-danger">Déconnexion</a>
+      </div>
+   <div>';
 }
 else
 {

@@ -15,13 +15,6 @@
 
 <body>
 
-<!-- Accès espace client -->
-   <div class="user_box ml-auto"> 
-      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
-         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
-   </div>
-      <br><br><br>
-
 <!-- Tableau contenant le titre -->
    <div class="basePage">
       <table id="table_basePage">
@@ -83,6 +76,7 @@ $civiliteResponsable=$lgEtab['civiliteResponsable'];
 $nomResponsable=$lgEtab['nomResponsable'];
 $prenomResponsable=$lgEtab['prenomResponsable'];
 $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
+$infoP=$lgEtab['infoP'];
 
 echo "
 <table width='60%' cellspacing='0' cellpadding='0' align='center' 
@@ -136,6 +130,10 @@ class='tabNonQuadrille'>
       <td> Offre: </td>
       <td>$nombreChambresOffertes&nbsp;chambre(s)</td>
    </tr>
+      <tr class='ligneTabNonQuad'>
+      <td> Informations Pratiques: </td>
+      <td>$infoP </td>
+   </tr> 
 </table>
 <table align='center'>
    <tr>

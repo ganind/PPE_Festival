@@ -75,7 +75,7 @@ if (!selectBase($connexion))
 
 echo "
 <table width='70%' cellspacing='0' cellpadding='0' align='center' 
-class='tabQuadrille'>
+class='container table table-striped'>
    <tr class='enTeteTabQuad'>
       <td colspan='4'>Etablissements</td>
    </tr>";
@@ -91,7 +91,7 @@ class='tabQuadrille'>
       $id=$lgEtab['id'];
       $nom=$lgEtab['nom'];
       echo "
-		<tr class='ligneTabQuad'>
+		<tr>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
@@ -123,9 +123,10 @@ class='tabQuadrille'>
    }
 
       echo "
-   <table class='user_box ml-auto' align='center' cellspacing='0' cellpadding='0'>
+   <table align='center' cellspacing='0' cellpadding='0'>
       <tr>
-        <br> <td><a href='creationEtablissement.php?action=demanderCreEtab'>Création d'un établisement</a>
+        <br>
+        <td><a href='creationEtablissement.php?action=demanderCreEtab' class='btn btn-primary'>Création d'un établisement</a>
          </td>
       </tr>
    </table>";

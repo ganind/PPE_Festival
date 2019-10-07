@@ -39,12 +39,6 @@
    </div>
 <br><br>
 
- <!--  <br>
-   <div class="user_box ml-auto"> 
-         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Création d'un établisement</a></div>
-   </div>
-      <br><br> -->
-
 </body>
 </html>
 
@@ -148,9 +142,9 @@ if ($nbEtab!=0)
    } // Fin de la boucle sur les établissements
 
       echo "
-   <table class='user_box ml-auto' cellspacing='0' cellpadding='0' align='center'>
+   <table align='center'>
    <tr>
-   <td><a href='modificationAttributions.php?action=demanderModifAttrib'> Effectuer ou modifier les attributions</a></td>
+   <td><a href='modificationAttributions.php?action=demanderModifAttrib' class='container btn btn-primary'> Effectuer ou modifier les attributions</a></td>
    </tr>
    </table>";
 }

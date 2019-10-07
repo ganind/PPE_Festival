@@ -21,9 +21,11 @@
 <body>
 
 <!-- Accès espace client -->
-   <div class="user_box ml-auto"> 
-      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier</a></div>
-   </div>
+      <div class="container" align="right">
+         <br>
+         <a href="login.php" class="btn btn-primary">S'Identifier</a>
+      </div>
+
       <br><br><br>
 
 <!-- Tableau contenant le titre -->
