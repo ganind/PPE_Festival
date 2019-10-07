@@ -64,6 +64,7 @@ catch(PDOException $error)
 
 <body>
 
+
 	<?php
 	if (isset($message))
 	{
@@ -90,17 +91,15 @@ catch(PDOException $error)
    </div>
    <br><br>
 
-<!-- Tableau contenant les menus 
+<!-- Tableau contenant les menus -->
    <div class="menu">
       <table class="tabMenu" align="center">
          <tr>
             <td class="menu"><a href="index.php">Accueil</a></td>
-            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
-            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
          </tr>
       </table>
    </div>
-<br><br> -->
+<br><br> 
 
 	<div class="container" style="width:500px;">
 	<form method="post">

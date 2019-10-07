@@ -20,30 +20,11 @@
 
 <body>
 
-<!--<div class="container" style="width: 700px"> -->
-      <div class="btn btn-success"><a href="login.php">S'Identifier</a></div>
-        <!-- <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div> -->
+<!-- Accès espace client -->
+   <div class="user_box ml-auto"> 
+      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier</a></div>
    </div>
-</div>
       <br><br><br>
-
-<?php
-
-session_start();
-/* ici débute la session*/ 
-   if (isset($_SESSION["access_level"]))
-   {
-   if ($_SESSION["access_level"] == '1') /* on établit un niveau d'accès pour créer le back office, ici l'administrateur possède le niveau d'accès 1 */
-   {
-echo '<li class="main_nav_item"><a href="admin.php">Admin</a></li>';
-echo '<li class="main_nav_item"><a href="logout.php">Déconnexion</a></li>';
-}
-else
-{
-/* N'affiche pas l'onglet ADMIN si l'utilisateur ne possède pas le niveau d'accès 1 */
-   } 
-}
-?>
 
 <!-- Tableau contenant le titre -->
 
@@ -58,18 +39,6 @@ else
       </table>
    </div>
          
-<!-- Tableau contenant les menus -->
-
-   <div class="menu">
-      <table class="tabMenu" align="center">
-         <tr>
-            <td class="menu"><a href="index.php">Accueil</a></td>
-            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
-            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
-         </tr>
-      </table>
-   </div>
-<br><br>
 	<!-- Tableau contenant le texte -->
    <div class='texte_accueil'>
 <table>
