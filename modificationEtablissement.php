@@ -15,13 +15,6 @@
 
 <body>
 
-<!-- Accès espace client -->
-   <div class="user_box ml-auto"> 
-      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
-         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
-   </div>
-      <br><br><br>
-
 <!-- Tableau contenant le titre -->
    <div class="basePage">
       <table id="table_basePage">
@@ -35,15 +28,7 @@
    <br><br>
 
 <!-- Tableau contenant les menus -->
-   <div class="menu">
-      <table class="tabMenu" align="center">
-         <tr>
-            <td class="menu"><a href="index.php">Accueil</a></td>
-            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
-            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
-         </tr>
-      </table>
-   </div>
+   <?php include 'header.php';?>
 <br><br>
 <?php //manque du mot php
 

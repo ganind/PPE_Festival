@@ -25,15 +25,7 @@
    </div>
    <br><br>
    <!-- Tableau contenant les menus -->
-   <div class="menu">
-      <table class="tabMenu" align="center">
-         <tr>
-            <td class="menu"><a href="index.php">Accueil</a></td>
-            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
-            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
-         </tr>
-      </table>
-   </div>
+      <?php include 'header.php';?>
 <br><br>
 
 
@@ -43,7 +35,7 @@ session_start();
 
 if(isset($_SESSION["username"]))
 {
-	echo '<h4 class="container">Connexion avec success. Bienvenue, '.$_SESSION["username"].'.</h4>';
+	echo '<h5 class="container text-center">Connexion avec succès. <br><br> Bienvenue, '.$_SESSION["username"].'.</h5>';
 	echo '<br /><br /> 
    <div class="row">
       <div class="container col-lg-2 col-md-2 col-sm-2">

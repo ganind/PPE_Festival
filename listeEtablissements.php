@@ -28,15 +28,7 @@
    <br><br>
 
 <!-- Tableau contenant les menus -->
-   <div class="menu">
-      <table class="tabMenu" align="center">
-         <tr>
-            <td class="menu"><a href="index.php">Accueil</a></td>
-            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
-            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
-         </tr>
-      </table>
-   </div>
+      <?php include 'header.php';?>
 <br><br>
 
  <!--  <br>
@@ -77,7 +69,7 @@ echo "
 <table width='70%' cellspacing='0' cellpadding='0' align='center' 
 class='container table table-striped'>
    <tr class='enTeteTabQuad'>
-      <td colspan='4'>Etablissements</td>
+      <td colspan='4'>Établissements</td>
    </tr>";
      
    $req=obtenirReqEtablissements();
@@ -95,11 +87,11 @@ class='container table table-striped'>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
-         <a href='detailEtablissement.php?id=$id'>
+         <a class='btn btn-primary' style='background-color: #e2ddff; color:#0a0869; border:none;' href='detailEtablissement.php?id=$id'>
          Voir détail</a></td>
          
          <td width='16%' align='center'> 
-         <a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>
+         <a class='btn btn-primary' style='background-color: #e2ddff; color:#0a0869; border:none;' href='modificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>
          Modifier</a></td>";
       	
          // S'il existe déjà des attributions pour l'établissement, il faudra
@@ -108,7 +100,7 @@ class='container table table-striped'>
 			{
             echo "
             <td width='16%' align='center'> 
-            <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'>
+            <a class='btn btn-primary' style='background-color: #e2ddff; color:#0a0869; border:none;'  href='suppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'>
             Supprimer</a></td>";
          }
          else

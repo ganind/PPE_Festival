@@ -93,9 +93,11 @@ catch(PDOException $error)
 
 <!-- Tableau contenant les menus -->
    <div class="menu">
-      <table class="tabMenu" align="center">
+      <table class="" align="center">
          <tr>
-            <td class="menu"><a href="index.php">Accueil</a></td>
+            <td>
+            	<a href="index.php" class="btn btn-primary" style='background-color: #e2ddff; color:#0a0869; border:none;'>Accueil</a>
+            </td>
          </tr>
       </table>
    </div>
@@ -111,7 +113,7 @@ catch(PDOException $error)
 		<input type="password" name="password" class="form-control"/>
 		<br />
 
-		<input type="submit" name="login" class="btn btn-info" value="Connexion"/>
+		<input type="submit" name="login" class="btn btn-primary" value="Connexion"/>
 
 </form>
 </div>
