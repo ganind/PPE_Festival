@@ -23,7 +23,7 @@
          </tr>
       </table>
    </div>
-   <br><br>
+   <br>
    <!-- Tableau contenant les menus -->
       <?php include 'header.php';?>
 <br><br>

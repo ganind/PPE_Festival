@@ -26,7 +26,7 @@
          <a href="login.php" class="btn btn-primary">S'Identifier</a>
       </div>
 
-      <br><br><br>
+      <br>
 
 <!-- Tableau contenant le titre -->
 

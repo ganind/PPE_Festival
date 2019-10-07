@@ -89,7 +89,7 @@ catch(PDOException $error)
          </tr>
       </table>
    </div>
-   <br><br>
+   <br>
 
 <!-- Tableau contenant les menus -->
    <div class="menu">
