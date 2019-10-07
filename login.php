@@ -106,11 +106,11 @@ catch(PDOException $error)
 	<div class="container" style="width:500px;">
 	<form method="post">
 		<label>Utilisateur : </label>
-		<input type="text" name="username" class="form-control"/>
+		<input type="text" required name="username" class="form-control"/>
 		<br />
 	
 		<label>Mot de passe : </label>
-		<input type="password" name="password" class="form-control"/>
+		<input type="password" required name="password" class="form-control"/>
 		<br />
 
 		<input type="submit" name="login" class="btn btn-primary" value="Connexion"/>
