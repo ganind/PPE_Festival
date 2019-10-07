@@ -24,6 +24,17 @@
       </table>
    </div>
    <br><br>
+   <!-- Tableau contenant les menus -->
+   <div class="menu">
+      <table class="tabMenu" align="center">
+         <tr>
+            <td class="menu"><a href="index.php">Accueil</a></td>
+            <td class="menu"><a href="listeEtablissements.php">Gestion établissements</a></td>
+            <td class="menu"><a href="consultationAttributions.php">Attributions chambres</a></td>
+         </tr>
+      </table>
+   </div>
+<br><br>
 
 
 <?php
