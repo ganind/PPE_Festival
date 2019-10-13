@@ -10,30 +10,50 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="M2L Festival">
 <link href=css/cssGeneral.css rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="bootstrap4/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
-<?php
-// define variables and set to empty values
-$username = $email = "";
+<!-- define variables and set to empty values  -->
+    <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $username = test_input($_POST["username"]);
-  $email = test_input($_POST["email"]);
+include("_gestionBase.inc.php"); 
+include("_controlesEtGestionErreurs.inc.php");
+
+$connexion=connect();
+if (!$connexion)
+{
+   ajouterErreur("Echec de la connexion au serveur MySql");
+   afficherErreurs();
+   exit();
+}
+if (!selectBase($connexion))
+{
+   ajouterErreur("La base de données festival est inexistante ou non accessible");
+   afficherErreurs();
+   exit();
 }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+$username = $email = $password = "";
+
+      if (isset($_POST['create'])) {
+          $username   = $_POST["username"];
+          $email      = $_POST["email"];
+          $password   = $_POST["password"];
+
+          $sql = "INSERT INTO users (username, email, password) VALUES(?,?,password(?))";
+          $stmtinsert = $connexion->prepare($sql);
+          $result = $stmtinsert->execute([$username, $email, $password]);
+          if($result){
+            header("location:login_sucess.php");
+          } else {
+            echo 'Problème de sauvegarde !';
+          }
 }
-?>
+
+?> 
 	<!-- Tableau contenant le titre -->
    <div class="basePage">
       <table id="table_basePage">
@@ -58,25 +78,23 @@ function test_input($data) {
    </div>
    <!-- méthode de sécurité pour le transfert de données-->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+
   <div class="container">
-    <p>Veuillez remplir le formulaire ci-dessus.</p>
+    <p>Veuillez remplir le formulaire ci-dessous.</p>
     <hr>
 
     <label for="username"><b>Nom d'utilisateur : </b></label>
-    <input type="text" placeholder="Nom d'utilisateur" name="email" required>
+    <input type="text" placeholder="Nom d'utilisateur" name="username" required>
 
     <label for="email"><b>Email : </b></label>
     <input type="text" placeholder="Email" name="email" required>
 
-    <label for="psw"><b>Mot de passe :</b></label>
-    <input type="password" placeholder="Mot de passe" name="psw" required>
-
-    <label for="psw-repeat"><b>Confirmez le mot de passe :</b></label>
-    <input type="password" placeholder="Confirmez le mot de passe" name="psw-repeat" required>
+    <label for="password"><b>Mot de passe :</b></label>
+    <input type="password" placeholder="Mot de passe" name="password" required>
     <hr>
     
     <div class="container" align="center">
-    <button type="submit" class="btn btn-primary">S'Inscrire</button> </div>
+    <button type="submit" class="btn btn-primary" name="create">S'Inscrire</button> </div>
   </div>
   <br>
 

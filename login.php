@@ -30,9 +30,15 @@ try
 			);
 			$count = $statement->rowCount();
 			if($count > 0)
-			{
+			{		
+				$firstRow = $statement->fetch();
+				echo "Utilisateur trouvé avec le niveau d'accès :  ".$firstRow['level'];
+
+				$_SESSION["level"] = $firstRow['level'];
+
 				$_SESSION["username"] = $_POST["username"];
 				header("location:login_sucess.php");
+
 			}
 			else
 			{
@@ -71,13 +77,6 @@ catch(PDOException $error)
 		echo'<label class="text_danger">'.$message.'</label>';
 	}
 	?>
-
-<!-- Accès espace client 
-   <div class="user_box ml-auto"> 
-      <div class="user_box_login user_box_link"><a href="login.php">S'Identifier |&nbsp</a></div>
-         <div class="user_box_register user_box_link"><a href="creationEtablissement.php?action=demanderCreEtab">Ajouter un établisement</a></div>
-   </div>
-      <br><br><br> -->
 
 <!-- Tableau contenant le titre -->
    <div class="basePage">

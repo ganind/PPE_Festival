@@ -62,9 +62,4 @@ insert into Attribution values ('0351234W', 'g001', 3);
 insert into Attribution values ('0351234W', 'g006', 10);
 insert into Attribution values ('0351234W', 'g007', 7);
 
-insert into Users values (1,'admin','admin@admin.fr','admin');
-
-
-
- 
-
+insert into Users values (1,'admin','admin@admin.fr',PASSWORD('admin'),1);

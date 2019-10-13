@@ -51,6 +51,7 @@ create table Users
 (id int(10) NOT NULL AUTO_INCREMENT, 
 username varchar(10) NOT NULL,
 email varchar(100) NOT NULL,
-password varchar(100) NOT NULL, 
+password varchar(100) NOT NULL,
+level int(1) NULL, 
 PRIMARY KEY (id)) 
 ENGINE = InnoDB;
