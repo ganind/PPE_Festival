@@ -24,6 +24,7 @@
       <div class="container" align="right">
          <br>
          <a href="login.php" class="btn btn-primary">S'Identifier</a>
+         <a href="register.php" class="btn btn-primary">S'Inscrire</a>
       </div>
 
       <br>

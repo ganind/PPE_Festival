@@ -46,3 +46,11 @@ constraint pk_Attribution primary key(idEtab, idGroupe),
 constraint fk1_Attribution foreign key(idEtab) references Etablissement(id),
 constraint fk2_Attribution foreign key(idGroupe) references Groupe(id)) 
 ENGINE=INNODB;
+
+create table Users
+(id int(10) NOT NULL AUTO_INCREMENT, 
+username varchar(10) NOT NULL,
+email varchar(100) NOT NULL,
+password varchar(100) NOT NULL, 
+PRIMARY KEY (id)) 
+ENGINE = InnoDB;

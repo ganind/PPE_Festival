@@ -83,8 +83,8 @@ catch(PDOException $error)
    <div class="basePage">
       <table id="table_basePage">
          <tr> 
-            <td class="titre">Festival Folklores du Monde<br><br>
-            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            <td class="titre">Festival Folklores du Monde<br>
+            <span class="texteNiveau2">Connexion</span><br>
             </td>
          </tr>
       </table>
@@ -113,7 +113,7 @@ catch(PDOException $error)
 		<input type="password" required name="password" class="form-control"/>
 		<br />
 
-		<input type="submit" name="login" class="btn btn-primary" value="Connexion"/>
+		<input type="submit" name="login" class="btn btn-primary" align="center" value="Connexion"/>
 
 </form>
 </div>

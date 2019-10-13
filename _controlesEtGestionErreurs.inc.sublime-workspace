@@ -1,0 +1,242 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wi",
+				"width\tproperty"
+			],
+			[
+				"fesival",
+				"festival"
+			],
+			[
+				"max",
+				"maxlength"
+			],
+			[
+				"pre",
+				"preg_match"
+			],
+			[
+				"rs",
+				"rsAttribGroupe"
+			],
+			[
+				"lgAtt",
+				"lgAttribGroupe"
+			],
+			[
+				"lg",
+				"lgOccup"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp64/www/PPE_Festival/logout.php",
+		"/C/wamp64/www/PPE_Festival/login_sucess.php",
+		"/C/wamp64/www/PPE_Festival/css/cssGeneral.css",
+		"/C/wamp64/www/PPE_Festival/index.php",
+		"/C/wamp64/www/PPE_Festival/login.php",
+		"/C/wamp64/www/PPE_Festival/modificationAttributions.php",
+		"/C/wamp64/www/PPE_Festival/listeEtablissements.php",
+		"/C/wamp64/www/PPE_Festival/modificationEtablissement.php",
+		"/C/wamp64/www/PPE_Festival/suppressionEtablissement.php",
+		"/C/wamp64/www/PPE_Festival/detailEtablissement.php",
+		"/C/wamp64/www/PPE_Festival/consultationAttributions.php",
+		"/C/wamp64/www/PPE_Festival/creationEtablissement.php",
+		"/C/wamp64/www/PPE_Festival/connexion.php",
+		"/C/wamp64/www/PPE_Festival/_debut.inc.php",
+		"/C/wamp64/www/PPE_Festival/_gestionBase.inc.php",
+		"/C/wamp64/www/PPE_Festival/donnerNbChambres.php",
+		"/C/wamp64/www/PPE_Festival/process.php",
+		"/C/wamp64/bin/mysql/mysql5.7.23/data/festival_tables.sql",
+		"/C/wamp64/www/PPE_Festival/_controlesEtGestionErreurs.inc.php",
+		"/C/wamp64/bin/mysql/mysql5.7.23/data/festival_data.sql",
+		"/C/wamp64/www/codeAppliFestival/index.php",
+		"/C/wamp64/www/festival_tables.sql",
+		"/C/wamp64/www/codeAppliFestival/consultationAttributions.php",
+		"/C/wamp64/www/codeAppliFestival/detailEtablissement.php",
+		"/C/wamp64/www/codeAppliFestival/css/cssGeneral.css",
+		"/C/wamp64/www/codeAppliFestival/_debut.inc.php",
+		"/C/wamp64/www/codeAppliFestival/creationEtablissement.php",
+		"/C/wamp64/www/codeAppliFestival/donnerNbChambres.php",
+		"/C/wamp64/www/codeAppliFestival/modificationEtablissement.php",
+		"/C/wamp64/www/codeAppliFestival/listeEtablissements.php",
+		"/C/wamp64/www/codeAppliFestival/connexion.php",
+		"/C/wamp64/www/codeAppliFestival/suppressionEtablissement.php",
+		"/C/wamp64/www/codeAppliFestival/_controlesEtGestionErreurs.inc.php",
+		"/C/wamp64/www/codeAppliFestival/_gestionBase.inc.php",
+		"/D/BTS SIO/2eme Annee/PPE CV - LM 09-2018/Festival/application/code/codeAppliFestival/listeEtablissements.php",
+		"/D/BTS SIO/2eme Annee/SLAM 3/sucrerie_data.sql",
+		"/D/BTS SIO/2eme Annee/SLAM 3/sucrerie_fk.sql",
+		"/C/wamp64/www/create-utf8.sql",
+		"/C/Users/Deborah/.m2/settings.xml",
+		"/C/Users/Deborah/.m2/repository/settings.xml",
+		"/D/BTS SIO/SI6/Algos/AlgoPharmacie.as",
+		"/D/BTS SIO/SI6/Projet/travelix/index.html"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"()",
+			"creerEtablissement",
+			"validerCreEtab",
+			"creer",
+			"verifierDonneesEtabC",
+			"mysql_query",
+			"mysql_connect",
+			"php"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "_controlesEtGestionErreurs.inc.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

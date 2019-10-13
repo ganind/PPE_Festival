@@ -27,7 +27,7 @@
    </div>
    <br><br>
 
-<!-- Tableau contenant les menus -->
+<!-- Les menus -->
       <?php include 'header.php';?>
 <br><br>
 
