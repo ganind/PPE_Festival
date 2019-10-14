@@ -20,8 +20,8 @@
    <div class="basePage">
       <table id="table_basePage">
          <tr> 
-            <td class="titre">Festival Folklores du Monde<br><br>
-            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            <td class="titre">Festival Folklores du Monde<br>
+            <span class="texteNiveau2">Hébergement des groupes</span><br>
             </td>
          </tr>
       </table>
@@ -114,7 +114,7 @@ if ($nbEtab!=0)
       // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE 
       echo "
       <tr class='enTeteTabQuad'>
-         <td colspan='2' align='left'><strong>$nomEtab</strong>&nbsp;
+         <td colspan='3' align='left'><strong>$nomEtab</strong>&nbsp;
          (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
          </td>
       </tr>";
@@ -122,9 +122,12 @@ if ($nbEtab!=0)
       // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE 
       echo "
       <tr class='ligneTabQuad'>
-         <td width='65%' align='left'><i><strong>Nom groupe</strong></i></td>
-         <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
+         <td width='33%' align='left'><i><strong>Nom groupe</strong></i></td>
+         <td width='33%' align='left'><i><strong>Chambres attribuées</strong></i>
          </td>
+         <td width='33%' align='left'><i><strong>Personnes à loger</strong></i>
+         </td>
+
       </tr>";
         
       // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR GROUPE AFFECTÉ 
@@ -140,12 +143,18 @@ if ($nbEtab!=0)
       {
          $idGroupe=$lgGroupe['id'];
          $nomGroupe=$lgGroupe['nom'];
+         $nombrePersonnes=$lgGroupe['nombrePersonnes'];
          echo "
          <tr class='ligneTabQuad'>
             <td width='65%' align='left'>$nomGroupe</td>";
          // On recherche si des chambres ont déjà été attribuées à ce groupe
          // dans l'établissement
+
+            echo"
+            <td width='33%'' align='left'>$nombrePersonnes</td>";
+
          $nbOccupGroupe=obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe);
+         
          echo "
             <td width='35%' align='left'>$nbOccupGroupe</td>
          </tr>";

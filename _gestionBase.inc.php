@@ -192,7 +192,7 @@ function estModifOffreCorrecte($connexion, $idEtab, $nombreChambres)
 
 function obtenirReqIdNomGroupesAHeberger()
 {
-   $req="select id, nom from Groupe where hebergement='O' order by id";
+   $req="select id, nom, nombrePersonnes from Groupe where hebergement='O' order by id";
    return $req;
 }
 
@@ -258,7 +258,7 @@ function modifierAttribChamb($connexion, $idEtab, $idGroupe, $nbChambres)
 // dans l'établissement transmis
 function obtenirReqGroupesEtab($id)
 {
-   $req="select distinct id, nom from Groupe, Attribution where 
+   $req="select distinct id, nom, nombrePersonnes from Groupe, Attribution where 
         Attribution.idGroupe=Groupe.id and idEtab='$id'";
    return $req;
 }

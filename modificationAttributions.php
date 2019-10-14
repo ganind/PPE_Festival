@@ -20,8 +20,8 @@
    <div class="basePage">
       <table id="table_basePage">
          <tr> 
-            <td class="titre">Festival Folklores du Monde<br><br>
-            <span class="texteNiveau2">Hébergement des groupes</span><br><br>
+            <td class="titre">Festival Folklores du Monde<br>
+            <span class="texteNiveau2">Hébergement des groupes</span><br>
             </td>
          </tr>
       </table>
@@ -158,9 +158,11 @@ class='tabQuadrille'>";
    {
       $idGroupe=$lgGroupe['id'];
       $nom=$lgGroupe['nom'];
+      $nombrePersonnes=$lgGroupe['nombrePersonnes'];
+
       echo "
       <tr class='ligneTabQuad'>
-         <td width='25%'>$nom</td>";
+         <td width='25%'>$nom ($nombrePersonnes) </td>";
       $req=obtenirReqEtablissementsOffrantChambres();
       //$rsEtab=mysql_query($req, $connexion);
       $rsEtab=$connexion->query($req);
