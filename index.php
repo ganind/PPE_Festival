@@ -1,8 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html> 
 <html lang="fr">
 
 <!-- TITRE ET MENUS -->
-
 <head>
 
 <title>Festival | Accueil</title> 
@@ -20,14 +20,54 @@
 
 <body>
 
-<!-- Accès espace client -->
+   <?php 
+   if (empty($_SESSION))
+   {
+      echo '
       <div class="container" align="right">
          <br>
-         <a href="login.php" class="btn btn-primary">S'Identifier</a>
-         <a href="register.php" class="btn btn-primary">S'Inscrire</a>
+         <a href="login.php" class="btn btn-primary">Identification</a>
+         <a href="register.php" class="btn btn-primary">Inscription</a>
       </div>
+      <br>';
+   }
+   else 
+   {
+   echo '
+   <div class="row">
+      <div class="container col-lg-2 col-md-2 col-sm-2" align="left">
+         <a href="logout.php" class="container btn btn-danger">Déconnexion</a>
+      </div>
+      <div class="container" align="center">
+         <a href="index.php" class="btn btn-primary" style="background-color: #e2ddff; color:#0a0869; border:none;">Accueil</a>
+         </div>
+      <div class="container" align="right">
+         <a href="creationEtablissement.php?action=demanderCreEtab" class="btn btn-primary" style="background-color: #e2ddff; color:#0a0869; border:none;">Ajouter un Établissement</a>
+         </div>
+   <div>';
+   }
 
-      <br>
+ ?> 
+<!-- Tableau contenant les menus -->
+
+<?php
+if(isset($_SESSION["level"]))
+{
+   $level=$_SESSION["level"];
+   if ($level=1)
+   {
+   echo'
+<div class="container">
+      <table class="tabMenu" align="center">
+         <tr>
+            <td class="menu"><a href="listeEtablissements.php" class="btn btn-primary" style="background-color: #e2ddff; color:#0a0869; border:none;">Gestion établissements</a></td>
+            <td class="menu"><a href="consultationAttributions.php" class="btn btn-primary" style="background-color: #e2ddff; color:#0a0869; border:none;">Attributions chambres</a></td>
+         </tr>
+      </table>
+   </div>';
+   }
+}
+?>
 
 <!-- Tableau contenant le titre -->
 
@@ -59,51 +99,3 @@
 </div>
 </body>
 </html>
-
-
-
-<!-- ancienne version
-
-<?php
-
-echo '
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/html4/loose.dtd">
- TITRE ET MENUS 
-<html lang="fr">
-<head>
-<title>Festival</title>
-<meta http-equiv="Content-Language" content="fr">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
-</head>
-<body class="basePage">
-
-  Tableau contenant le titre 
-<table width="100%" cellpadding="0" cellspacing="0">
-   <tr> 
-      <td class="titre">Festival Folklores du Monde <br>
-      <span id="texteNiveau2" class="texteNiveau2">
-      H&eacute;bergement des groupes</span><br>&nbsp;
-      </td>
-   </tr>
-</table>
-
- Tableau contenant les menus
-<table width="80%" cellpadding="0" cellspacing="0" class="tabMenu" align="center">
-   <tr>
-      <td class="menu"><a href="index.php">Accueil</a></td>
-      <td class="menu"><a href="listeEtablissements.php">
-      Gestion établissements</a></td>
-      <td class="menu"><a href="consultationAttributions.php">
-      Attributions chambres</a></td>
-   </tr>
-</table>
-<br>';
-
-?> 
--->
-
-
-
-
