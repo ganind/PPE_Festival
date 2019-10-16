@@ -3,7 +3,17 @@
 <html lang="fr">
 
 <head>
+   <?php
 
+   if (isset(($_SESSION)))
+   {
+      echo '<div class="row">
+      <div class="container col-lg-2 col-md-2 col-sm-2" align="left">
+      <a href="logout.php" class="container btn btn-danger">Déconnexion</a>
+      </div>';
+
+   }
+ ?> 
 <title>Festival | Attributions</title> 
 <meta charset="utf-8"> <!-- reconnaissance des accents -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
